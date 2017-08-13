@@ -567,12 +567,13 @@ a {
   }
 
 .wrapper {
+  overflow: hidden;
   padding-left: 18px;
   padding-right: 18px;
   max-width: 1236px;
   margin-left: auto;
   margin-right: auto;
-  overflow: hidden;
+
 }
 
 .wrapper--medium {
@@ -605,21 +606,21 @@ a {
   }
   }
 
-.wrapper .wrapper { /*wrapper nested in another wrapper*/
+/*wrapper nested in another wrapper*/
+
+.wrapper .wrapper {
     padding-left: 0;
     padding-right: 0;
   }
 
 .wrapper--b-margin {
     margin-bottom: 1rem;
-
   }
 
 @media (min-width: 530px) {
 
 .wrapper--b-margin {
-    margin-bottom: 3.875rem
-
+      margin-bottom: 3.875rem
   }
   }
 
@@ -1122,15 +1123,19 @@ a {
 @media (min-width: 800px) {
 
 .site-header {
+    position: fixed;
     background-color: rgba(47,85,114, .3)
 }
+
+    .site-header--dark {
+      background-color: rgba(23, 51, 72, .85);
+    }
   }
 
 @media (min-width: 800px) {
 
 .site-header__btn-container {
-        float: right
-
+      float: right
   }
   }
 
@@ -1140,6 +1145,10 @@ a {
     left: 50%;
     -webkit-transform: translateX(-50%) scale(.8);
             transform: translateX(-50%) scale(.8);
+    -webkit-transition: -webkit-transform .3s ease-out;
+    transition: -webkit-transform .3s ease-out;
+    transition: transform .3s ease-out;
+    transition: transform .3s ease-out, -webkit-transform .3s ease-out;
     -webkit-transform-origin: 50% 0;
             transform-origin: 50% 0;
     background-color: #2f5572;
@@ -1152,27 +1161,32 @@ a {
       left: auto;
       -webkit-transform: translateX(0);
               transform: translateX(0)
+        /*runs only when the logo has a class .site-header--dark*/
   }
+      .site-header--dark .site-header__logo {
+        -webkit-transform: scale(.57);
+                transform: scale(.57);
+      }
   }
 
 .site-header__logo__graphic {
-    text-indent:-9999px;
+    text-indent: -9999px;
   }
 
 .site-header__menu-icon {
     width: 20px;
     height: 19px;
     position: absolute;
-    right: 10px;
-    top: 10px;
     z-index: 10;
+    top: 10px;
+    right: 10px;
   }
 
 .site-header__menu-icon::before {
       content: "";
       position: absolute;
       top: 0;
-      left:0;
+      left: 0;
       width: 20px;
       height: 3px;
       background-color: #FFF;
@@ -1185,9 +1199,9 @@ a {
     }
 
 .site-header__menu-icon__middle {
-      position:absolute;
+      position: absolute;
       top: 8px;
-      left:0;
+      left: 0;
       width: 20px;
       height: 3px;
       background-color: #FFF;
@@ -1199,9 +1213,9 @@ a {
 
 .site-header__menu-icon::after {
       content: "";
-      position:absolute;
+      position: absolute;
       bottom: 0;
-      left:0;
+      left: 0;
       width: 20px;
       height: 3px;
       background-color: #FFF;
@@ -1211,7 +1225,6 @@ a {
       transition: -webkit-transform .3s ease-out;
       transition: transform .3s ease-out;
       transition: transform .3s ease-out, -webkit-transform .3s ease-out;
-
     }
 
 @media (min-width: 800px) {
@@ -1240,10 +1253,9 @@ a {
 .site-header__menu-content {
     opacity: 0;
     -webkit-transform: scale(1.2);
-            transform: scale(1.2);/*zooming effect*/
+            transform: scale(1.2);
     -webkit-transition: all .3s ease-out;
     transition: all .3s ease-out;
-    /*we could use display: none*/
     position: relative;
     z-index: -10;
     padding-top: 90px;
@@ -1256,8 +1268,8 @@ a {
       opacity: 1;
       z-index: 1;
       padding-top: 0;
-      -webkit-transform:scale(1);
-              transform:scale(1)
+      -webkit-transform: scale(1);
+              transform: scale(1)
   }
   }
 
@@ -1269,16 +1281,19 @@ a {
     }
 
 .primary-nav {
-padding-top: 10px;
-}
-
-.primary-nav mixin atMedium {
-  padding-top: 0;
+  padding-top: 10px;
 }
 
 @media (min-width: 800px) {
 
-.primary-nav--pull-right{
+.primary-nav {
+    padding-top: 0
+}
+  }
+
+@media (min-width: 800px) {
+
+.primary-nav--pull-right {
       float: right
   }
   }
@@ -1333,10 +1348,14 @@ padding-top: 10px;
 @media (min-width: 800px) {
 
 .primary-nav a {
-      background-color: transparent;
       font-size: 1rem;
-      padding: 12px 0
+      padding: 12px 0;
+      background-color: transparent
   }
+
+      .primary-nav a.is-current-link {
+        color: #fabb69;
+      }
   }
 
 .reveal-item {
