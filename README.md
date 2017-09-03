@@ -1,0 +1,1 @@
+,,Travel Agency” was developed during the course ,, Git a Web Developer Job: Mastering the Modern Workflow”. It is mobile-first, responsive website designed and developed to load quickly. The main goal of the project was to master with the usage of Node.js, NPM, Gulp and Git as well as to get familiar with BEM and object-oriented ES6.  https://xyzalag.github.io/travel-site/
